@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'GratefulMe',
-  description: 'A personal digital gratitude journal for daily reflection.',
+  title: 'SyukurBro',
+  description: 'Aplikasi jurnal rasa syukur digital buat refleksi harian.',
 };
 
 export default function RootLayout({

@@ -16,17 +16,17 @@ const initialEntries: GratitudeEntry[] = [
   {
     id: '3',
     date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
-    text: "I'm grateful for the warm cup of coffee that started my day. It's the little things that bring so much comfort.",
+    text: "Gue bersyukur buat secangkir kopi anget pagi ini. Hal-hal kecil gini yang bikin nyaman banget.",
   },
   {
     id: '2',
     date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
-    text: 'A friend called me out of the blue today, and it was so nice to catch up. I feel very thankful for my friendships.',
+    text: 'Temen tiba-tiba nelpon hari ini, seneng banget bisa ngobrol lagi. Bersyukur banget punya temen-temen kayak mereka.',
   },
   {
     id: '1',
     date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000),
-    text: 'Finished a challenging project at work. I am grateful for my perseverance and the support of my team.',
+    text: 'Akhirnya kelar juga proyek susah di kantor. Gue bersyukur atas kegigihan gue dan dukungan tim.',
   },
 ];
 
@@ -45,8 +45,8 @@ export default function Home() {
       };
       setEntries([newEntry, ...entries]);
       toast({
-        title: "Entry Saved!",
-        description: "Your moment of gratitude has been recorded.",
+        title: "Sip, kesimpen!",
+        description: "Rasa syukur lo udah kecatet, bro.",
       });
     });
   };
@@ -75,12 +75,12 @@ export default function Home() {
           <div className="lg:col-span-2 space-y-8">
             <SummaryGenerator entries={entries} />
             <div>
-              <h2 className="text-3xl font-bold font-headline mb-4">Past Reflections</h2>
+              <h2 className="text-3xl font-bold font-headline mb-4">Catetan Kemarin</h2>
               <div className="relative mb-4">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <Input
                   type="search"
-                  placeholder="Search entries..."
+                  placeholder="Cari catetan..."
                   className="pl-10"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -92,7 +92,7 @@ export default function Home() {
         </div>
       </main>
       <footer className="text-center p-4 text-muted-foreground text-sm border-t">
-        <p>Crafted with gratitude. © {new Date().getFullYear()} GratefulMe.</p>
+        <p>Dibuat dengan rasa syukur. © {new Date().getFullYear()} SyukurBro.</p>
       </footer>
     </div>
   );

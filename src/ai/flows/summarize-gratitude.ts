@@ -36,7 +36,7 @@ const summarizeGratitudePrompt = ai.definePrompt({
   name: 'summarizeGratitudePrompt',
   input: {schema: SummarizeGratitudeInputSchema},
   output: {schema: SummarizeGratitudeOutputSchema},
-  prompt: `You are a gratitude journal assistant. Your task is to summarize a user's gratitude entries over a specified period ({{period}}), highlighting recurring themes and positive trends. Use sentiment analysis to identify the overall sentiment and key topics in the entries. The summary should provide insights into what the user is most grateful for and how their feelings of gratitude evolve over time.\n\nGratitude Entries:\n{{#each entries}}\nDate: {{date}}\nEntry: {{text}}\n{{/each}}`,
+  prompt: `Lo itu asisten jurnal rasa syukur yang santai. Tugas lo ngerangkum catatan rasa syukur user selama periode ({{period}}), tunjukin tema yang sering muncul sama tren positifnya. Pake analisis sentimen buat nentuin mood secara umum dan topik utama di catetannya. Rangkumannya harus ngasih tau apa aja yang paling disyukuri sama user dan gimana perasaan syukurnya berkembang.\n\nCatatan Rasa Syukur:\n{{#each entries}}\nTanggal: {{date}}\nCatetan: {{text}}\n{{/each}}`,
 });
 
 const summarizeGratitudeFlow = ai.defineFlow(

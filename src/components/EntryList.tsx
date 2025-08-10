@@ -33,9 +33,9 @@ export function EntryList({ entries }: EntryListProps) {
         <Card className="text-center py-10">
           <CardContent className="space-y-2">
             <BookOpen className="mx-auto h-12 w-12 text-muted-foreground" />
-            <h3 className="text-xl font-semibold font-headline">No entries found</h3>
+            <h3 className="text-xl font-semibold font-headline">Belom ada catetan, bro</h3>
             <p className="text-muted-foreground">
-              Start by adding a new gratitude entry or adjust your search term.
+              Coba deh bikin catetan baru atau ubah kata kuncinya.
             </p>
           </CardContent>
         </Card>

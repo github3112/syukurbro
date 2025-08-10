@@ -40,8 +40,8 @@ export function SummaryGenerator({ entries }: SummaryGeneratorProps) {
     if (entriesToSummarize.length < 1) {
       toast({
         variant: "destructive",
-        title: "Not enough entries",
-        description: `Please add at least one entry in the last ${period === 'weekly' ? '7' : '30'} days.`,
+        title: "Catetan kurang banyak",
+        description: `Bro, tambahin dulu minimal satu catetan dalam ${period === 'weekly' ? '7' : '30'} hari terakhir.`,
       });
       setIsLoading(false);
       return;
@@ -52,7 +52,7 @@ export function SummaryGenerator({ entries }: SummaryGeneratorProps) {
     if (result.error) {
       toast({
         variant: "destructive",
-        title: "Error Generating Summary",
+        title: "Gagal Bikin Rangkuman",
         description: result.error,
       });
     } else {
@@ -66,31 +66,31 @@ export function SummaryGenerator({ entries }: SummaryGeneratorProps) {
       <CardHeader>
         <div className="flex items-center gap-3">
             <Sparkles className="w-6 h-6 text-primary" />
-            <CardTitle className="font-headline">AI-Powered Summary</CardTitle>
+            <CardTitle className="font-headline">Rangkuman Pake AI</CardTitle>
         </div>
         <CardDescription>
-          Let AI analyze your gratitude patterns and provide a summary of your reflections.
+          Biar AI yang analisis pola syukur lo dan bikinin rangkumannya.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex gap-4 items-center flex-wrap">
             <Select value={period} onValueChange={(value: 'weekly' | 'monthly') => setPeriod(value)}>
                 <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Select period" />
+                    <SelectValue placeholder="Pilih periode" />
                 </SelectTrigger>
                 <SelectContent>
-                    <SelectItem value="weekly">Weekly</SelectItem>
-                    <SelectItem value="monthly">Monthly</SelectItem>
+                    <SelectItem value="weekly">Mingguan</SelectItem>
+                    <SelectItem value="monthly">Bulanan</SelectItem>
                 </SelectContent>
             </Select>
             <Button onClick={handleGenerateSummary} disabled={isLoading}>
-                {isLoading ? 'Generating...' : 'Generate Summary'}
+                {isLoading ? 'Lagi dibikin...' : 'Bikin Rangkuman'}
             </Button>
         </div>
-        {isLoading && <p className="text-muted-foreground animate-pulse">Analyzing your entries...</p>}
+        {isLoading && <p className="text-muted-foreground animate-pulse">Lagi dianalisis nih catetan lo...</p>}
         {summary && (
           <div className="p-4 bg-background rounded-md border text-sm">
-            <h4 className="font-bold mb-2">Your {period} summary:</h4>
+            <h4 className="font-bold mb-2">Rangkuman {period === 'weekly' ? 'mingguan' : 'bulanan'} lo:</h4>
             <p className="whitespace-pre-wrap">{summary}</p>
           </div>
         )}

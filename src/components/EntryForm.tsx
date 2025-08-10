@@ -24,22 +24,22 @@ export function EntryForm({ onAddEntry, isSubmitting }: EntryFormProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="font-headline">New Gratitude Entry</CardTitle>
-        <CardDescription>What are you grateful for today?</CardDescription>
+        <CardTitle className="font-headline">Catetan Syukur Baru</CardTitle>
+        <CardDescription>Hari ini lo bersyukur buat apa, bro?</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Today, I am grateful for..."
+            placeholder="Hari ini, gue bersyukur buat..."
             rows={5}
             required
             disabled={isSubmitting}
           />
           <Button type="submit" className="w-full" disabled={isSubmitting || !text.trim()}>
             <PlusCircle className="mr-2 h-4 w-4" />
-            {isSubmitting ? 'Saving...' : 'Save Entry'}
+            {isSubmitting ? 'Nyimpen...' : 'Simpen Catetan'}
           </Button>
         </form>
       </CardContent>

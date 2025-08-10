@@ -4,14 +4,14 @@ import { Lightbulb } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const prompts = [
-  "What's one thing that made you smile today?",
-  "Who is someone you're grateful for and why?",
-  "What is a simple pleasure in your life you are thankful for?",
-  "Describe a challenge you overcame and what you learned.",
-  "What is something beautiful you saw recently?",
-  "What skill are you thankful to have?",
-  "What's a food you're grateful for today?",
-  "What part of your daily routine do you appreciate most?",
+  "Apa nih yang bikin lo senyum hari ini?",
+  "Siapa orang yang lo syukuri dan kenapa?",
+  "Hal sepele apa dalam hidup yang lo syukuri?",
+  "Ceritain tantangan yang berhasil lo lewatin dan apa pelajarannya.",
+  "Apa hal indah yang lo liat baru-baru ini?",
+  "Skill apa yang lo punya dan lo syukuri?",
+  "Makanan apa yang lo syukuri hari ini?",
+  "Bagian mana dari rutinitas harian lo yang paling lo nikmatin?",
 ];
 
 export function GratitudePrompt() {
@@ -27,11 +27,11 @@ export function GratitudePrompt() {
     <Card>
       <CardHeader className="flex flex-row items-center gap-3">
         <Lightbulb className="w-6 h-6 text-primary" />
-        <CardTitle className="font-headline">Today's Prompt</CardTitle>
+        <CardTitle className="font-headline">Ide Hari Ini</CardTitle>
       </CardHeader>
       <CardContent>
         <p className="text-muted-foreground italic">
-          {prompt || "Loading your daily inspiration..."}
+          {prompt || "Lagi ngambil inspirasi harian buat lo..."}
         </p>
       </CardContent>
     </Card>
