@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, useTransition } from 'react';
+import { useState, useMemo, useTransition, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
 import type { GratitudeEntry } from '@/lib/types';
 import { Header } from '@/components/Header';
@@ -10,6 +11,8 @@ import { SummaryGenerator } from '@/components/SummaryGenerator';
 import { EntryList } from '@/components/EntryList';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/hooks/use-auth';
+import { Skeleton } from '@/components/ui/skeleton';
 
 // Dummy data for initial state
 const initialEntries: GratitudeEntry[] = [
@@ -35,6 +38,14 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
 
   const handleAddEntry = (text: string) => {
     startTransition(() => {
@@ -59,6 +70,34 @@ export default function Home() {
       entry.text.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [entries, searchTerm]);
+
+  if (loading || !user) {
+    return (
+        <div className="flex flex-col min-h-screen bg-background text-foreground font-body">
+            <Header />
+            <main className="flex-grow container mx-auto p-4 md:p-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div className="lg:col-span-1 space-y-8">
+                        <Skeleton className="h-48 w-full" />
+                        <Skeleton className="h-32 w-full" />
+                    </div>
+                    <div className="lg:col-span-2 space-y-8">
+                        <Skeleton className="h-48 w-full" />
+                        <div>
+                            <Skeleton className="h-12 w-1/3 mb-4" />
+                            <Skeleton className="h-10 w-full mb-4" />
+                            <div className="space-y-4">
+                                <Skeleton className="h-24 w-full" />
+                                <Skeleton className="h-24 w-full" />
+                                <Skeleton className="h-24 w-full" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground font-body">
