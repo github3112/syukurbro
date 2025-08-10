@@ -33,6 +33,13 @@ const AuthContext = createContext<AuthContextType>({
   logout: async () => {},
 });
 
+const mockUser = {
+  uid: "admin-test-uid",
+  email: "admin@admin.com",
+  displayName: "Admin Tester",
+  // tambahin properti lain kalo perlu
+} as User;
+
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -52,12 +59,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const login = (email: string, pass: string) => {
     if (email === 'admin@admin.com' && pass === 'admin') {
-      return signInWithEmailAndPassword(auth, 'test@test.com', 'password');
+      return new Promise<void>((resolve) => {
+        setUser(mockUser);
+        setLoading(false);
+        resolve();
+      });
     }
     return signInWithEmailAndPassword(auth, email, pass);
   };
 
   const logout = () => {
+    // Kalo lagi pake mock user, logout manual
+    if (user?.uid === "admin-test-uid") {
+      return new Promise<void>((resolve) => {
+        setUser(null);
+        resolve();
+      });
+    }
     return signOut(auth);
   };
 
