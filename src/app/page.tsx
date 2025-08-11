@@ -7,7 +7,6 @@ import type { GratitudeEntry } from '@/lib/types';
 import { Header } from '@/components/Header';
 import { GratitudePrompt } from '@/components/GratitudePrompt';
 import { EntryForm } from '@/components/EntryForm';
-import { SummaryGenerator } from '@/components/SummaryGenerator';
 import { EntryList } from '@/components/EntryList';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
@@ -112,7 +111,6 @@ export default function Home() {
 
           {/* Right Column */}
           <div className="lg:col-span-2 space-y-8">
-            <SummaryGenerator entries={entries} />
             <div>
               <h2 className="text-3xl font-bold font-headline mb-4">Catetan Kemarin</h2>
               <div className="relative mb-4">
