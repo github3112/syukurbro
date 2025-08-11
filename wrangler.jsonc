@@ -1,7 +1,5 @@
 {
 "name": "syukurbro",
 "compatibility_date": "2025-08-11",
-"assets": {
-"directory": "./src/app/layout.tsx"
- }
+"main":"src/app/layout.tsx"
 }
